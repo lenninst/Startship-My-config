@@ -5,7 +5,7 @@ add_newline = false
 
 # Change the default prompt format
 format = """\
-[╭╴](238)$os $character\
+[╭╴](238)$os $character \
  $all[╰→](238) """
 
 # Change the default prompt characters
@@ -24,7 +24,7 @@ Ubuntu = ""
 Windows = ""
 
 [shlvl]
-disabled = false 
+disabled = false
 symbol = "↕️ "
 threshold = 1
 
@@ -37,15 +37,15 @@ style_root = "black bold"
 style_user = "white bold" 
 
 [directory]
-format = "[♘lenn](fg:#d88dd1) [$path]($style)[$read_only]($read_only_style)"
-home_symbol ="⚡️~"
+format ="[lenn](fg:#d88dd1)[$path]($style)[$read_only]($read_only_style) ⚡"
+home_symbol = "~"
 read_only = " "
 read_only_style = "197"
 truncation_length = 1
-truncation_symbol = "…"
+truncation_symbol = " ."
 
 [cmd_duration]
-format = ' [  $duration](fg:#ff6ac1)'
+format = '[  $duration](fg:#ff6ac1)'
 min_time = 500
 
 [time]
