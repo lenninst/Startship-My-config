@@ -1,0 +1,110 @@
+# ~/.config/starship.toml
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Change the default prompt format
+format = """\
+[╭╴](238)$os $character\
+ $all[╰→](238) """
+
+# Change the default prompt characters
+[character]
+error_symbol ='[✗](fg:#da506e)'
+success_symbol ='[✓](fg:#769ff0)'
+
+# No need for env variables as starship provides a way to show your current distro
+[os]
+disabled = false
+format = '[$symbol](bold white)'
+
+[os.symbols]
+Arch = "󰣇"
+Ubuntu = ""
+Windows = ""
+
+[shlvl]
+disabled = false 
+symbol = "↕️ "
+threshold = 1
+
+# Shows the username
+[username]
+disabled = true # disable in powershell
+format = "[$user]($style)" 
+show_always = true 
+style_root = "black bold" 
+style_user = "white bold" 
+
+[directory]
+format = "[♘lenn](fg:#d88dd1) [$path]($style)[$read_only]($read_only_style)"
+home_symbol ="⚡️~"
+read_only = " "
+read_only_style = "197"
+truncation_length = 1
+truncation_symbol = "…"
+
+[cmd_duration]
+format = ' [  $duration](fg:#ff6ac1)'
+min_time = 500
+
+[time]
+disabled = true 
+format = '[  $time ]($style)' 
+time_format = "%R" # Hour:Minute Format
+
+[fill]
+style = 'bold green'
+symbol = '-'
+
+[git_branch]
+format = " on [$symbol$branch]($style) "
+style = "bold green"
+symbol = " 󰊢 "
+truncation_length = 4
+truncation_symbol = "…/"
+
+[git_status]
+ahead = "⇡${count}"
+behind = "⇣${count}"
+conflicted = "🏳"
+deleted = "  "
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+format = '[\($all_status$ahead_behind\)]($style) '
+modified = " "
+renamed = "󰖷 "
+staged = '[++\($count\)](green)'
+stashed = "󰏗 "
+style = "bold green"
+untracked = " "
+up_to_date = " "
+
+[terraform]
+format = " via [ terraform $version]($style) 壟 [$workspace]($style) "
+
+[vagrant]
+format = " via [ vagrant $version]($style) "
+
+[docker_context]
+format = " via [ $context](bold blue) "
+
+[helm]
+format = " via [ $version](bold purple) "
+
+[python]
+python_binary = "python3"
+symbol = "󰌠 "
+
+[nodejs]
+disabled = true
+format = " via [󰎙 $version](bold green) "
+
+[ruby]
+format = " via [ $version]($style) "
+
+[kubernetes]
+disabled = false
+format = 'on [ $context\($namespace\)](bold purple) '
+[kubernetes.context_aliases]
+"clcreative-k8s-production" = "cl-k8s-prod"
+"clcreative-k8s-staging" = "cl-k8s-staging"
