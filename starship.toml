@@ -5,13 +5,16 @@ add_newline = false
 
 # Change the default prompt format
 format = """\
-[╭╴](238)$os $character\
- $all[╰→](238) """
+[╭╴](238)$os$character\
+ $all[╰→](238)"""
+
+# Sets user-defined palette
+palette = "catppuccin_macchiato"
 
 # Change the default prompt characters
 [character]
-error_symbol ='[✗](fg:#da506e)'
-success_symbol ='[✓](fg:#769ff0)'
+error_symbol ='[ ](fg:#da506e)'
+success_symbol ='[ ](fg:#9ece6a)'
 
 # No need for env variables as starship provides a way to show your current distro
 [os]
@@ -24,7 +27,7 @@ Ubuntu = ""
 Windows = ""
 
 [shlvl]
-disabled = false 
+disabled = false
 symbol = "↕️ "
 threshold = 1
 
@@ -37,20 +40,20 @@ style_root = "black bold"
 style_user = "white bold" 
 
 [directory]
-format = "[♘lenn](fg:#d88dd1) [$path]($style)[$read_only]($read_only_style)"
-home_symbol ="⚡️~"
-read_only = " "
+format ="[$path](fg:#d88dd1)($style)[$read_only]($read_only_style) [⚡](fg:#ffd584)"
+home_symbol = "~"
+read_only = "󰉑 "
 read_only_style = "197"
 truncation_length = 1
-truncation_symbol = "…"
+truncation_symbol =" "
 
 [cmd_duration]
-format = ' [  $duration](fg:#ff6ac1)'
+format = '[  $duration](fg:#ff6ac1)'
 min_time = 500
 
 [time]
 disabled = true 
-format = '[  $time ]($style)' 
+format = '[ $time ]($style)' 
 time_format = "%R" # Hour:Minute Format
 
 [fill]
@@ -60,18 +63,18 @@ symbol = '-'
 [git_branch]
 format = " on [$symbol$branch]($style) "
 style = "bold green"
-symbol = " 󰊢 "
-truncation_length = 4
-truncation_symbol = "…/"
+symbol = "󰊢 "
+truncation_length = 10
+truncation_symbol = "... "
 
 [git_status]
 ahead = "⇡${count}"
 behind = "⇣${count}"
 conflicted = "🏳"
-deleted = "  "
+deleted = " "
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 format = '[\($all_status$ahead_behind\)]($style) '
-modified = " "
+modified = ""
 renamed = "󰖷 "
 staged = '[++\($count\)](green)'
 stashed = "󰏗 "
@@ -103,8 +106,65 @@ format = " via [󰎙 $version](bold green) "
 format = " via [ $version]($style) "
 
 [kubernetes]
-disabled = false
+disabled = true
 format = 'on [ $context\($namespace\)](bold purple) '
 [kubernetes.context_aliases]
 "clcreative-k8s-production" = "cl-k8s-prod"
 "clcreative-k8s-staging" = "cl-k8s-staging"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
+# palette tables should be last in the config ⚓️
+[palettes.catppuccin_macchiato]
+rosewater = "#f4dbd6"
+flamingo = "#f0c6c6"
+pink = "#f5bde6"
+mauve = "#c6a0f6"
+red = "#ed8796"
+maroon = "#ee99a0"
+peach = "#f5a97f"
+yellow = "#eed49f"
+green = "#a6da95"
+teal = "#8bd5ca"
+sky = "#91d7e3"
+sapphire = "#7dc4e4"
+blue = "#8aadf4"
+lavender = "#b7bdf8"
+text = "#cad3f5"
+subtext1 = "#b8c0e0"
+subtext0 = "#a5adcb"
+overlay2 = "#939ab7"
+overlay1 = "#8087a2"
+overlay0 = "#6e738d"
+surface2 = "#5b6078"
+surface1 = "#494d64"
+surface0 = "#363a4f"
+base = "#24273a"
+mantle = "#1e2030"
+crust = "#181926"
