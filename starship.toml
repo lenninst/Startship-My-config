@@ -1,86 +1,102 @@
 # ~/.config/starship.toml
 
 # Inserts a blank line between shell prompts
-add_newline = false
+# add_newline = true
 
 # Change the default prompt format
+# format = """\
+# [╭╴](238)$os$character\
+#  $all[╰→](238)"""
+
 format = """\
-[╭╴](238)$os$character\
- $all[╰→](238)"""
+$os$all"""
+
 
 # Sets user-defined palette
 palette = "catppuccin_macchiato"
 
-# Change the default prompt characters
 [character]
-error_symbol ='[ ](fg:#da506e)'
-success_symbol ='[ ](fg:#9ece6a)'
+error_symbol ='[](fg:red)'
+success_symbol ='[](fg:sky)'
 
-# No need for env variables as starship provides a way to show your current distro
 [os]
 disabled = false
 format = '[$symbol](bold white)'
 
 [os.symbols]
-Arch = "󰣇"
+Arch = "[󰣇 ](fg:#89b4fa)"
 Ubuntu = ""
 Windows = ""
 
 [shlvl]
-disabled = false
-symbol = "↕️ "
+disabled = true
+symbol = " "
 threshold = 1
 
 # Shows the username
 [username]
-disabled = true # disable in powershell
-format = "[$user]($style)" 
+disabled = false # disable in powershell
+format = "[$user ]($style)" 
+style_user = "bold blue"
+style_root = "bold yellow"
 show_always = true 
-style_root = "black bold" 
-style_user = "white bold" 
 
 [directory]
-format ="[$path](fg:#d88dd1)($style)[$read_only]($read_only_style) [⚡](fg:#ffd584)"
-home_symbol = "~"
+format ="[$path]($style)[ $read_only]($read_only_style)[⚡](fg:#ffd584)"
+style = "bold mauve"
+home_symbol = " "
 read_only = "󰉑 "
-read_only_style = "197"
-truncation_length = 1
+read_only_style = "fg:red"
+truncation_length = 3
 truncation_symbol =" "
 
 [cmd_duration]
-format = '[  $duration](fg:#ff6ac1)'
+format = '[](base)[󱦟 $duration]($style)[ ](base)'
+style = "bold fg:mauve bg:base"
 min_time = 500
 
 [time]
 disabled = true 
 format = '[ $time ]($style)' 
-time_format = "%R" # Hour:Minute Format
+time_format = "%R" 
 
 [fill]
 style = 'bold green'
 symbol = '-'
 
 [git_branch]
-format = " on [$symbol$branch]($style) "
+format = "on [$symbol$branch]($style) "
 style = "bold green"
-symbol = "󰊢 "
-truncation_length = 10
+symbol = " "
+truncation_length = 20
 truncation_symbol = "... "
 
 [git_status]
 ahead = "⇡${count}"
 behind = "⇣${count}"
-conflicted = "🏳"
-deleted = " "
+conflicted = "󰕚 "
+deleted = " "
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-format = '[\($all_status$ahead_behind\)]($style) '
-modified = ""
-renamed = "󰖷 "
+format = '[](green)[ $all_status$ahead_behind]($style)[ ](green)'
+modified = " "
+renamed = " "
 staged = '[++\($count\)](green)'
 stashed = "󰏗 "
-style = "bold green"
+style = "bold bg:green fg:mantle"
 untracked = " "
-up_to_date = " "
+up_to_date = "󱓏 "
+
+[package]
+symbol = " "
+style = "bold peach"
+
+[java]
+format = "via [](rosewater)[[ ]($style)[ ](rosewater)$version](bold rosewater) "
+style = "bold bg:rosewater fg:crust"
+
+[lua]
+format = " via [](sky)[[]($style)[ ](sky)$version](bold sky) "
+style = "bold bg:sky fg:crust"
 
 [terraform]
 format = " via [ terraform $version]($style) 壟 [$workspace]($style) "
@@ -89,7 +105,8 @@ format = " via [ terraform $version]($style) 壟 [$workspace]($style) "
 format = " via [ vagrant $version]($style) "
 
 [docker_context]
-format = " via [ $context](bold blue) "
+format = " via [](blue)[ $context]($style)[](blue)"
+style = "bold bg:blue fg:crust"
 
 [helm]
 format = " via [ $version](bold purple) "
@@ -99,8 +116,8 @@ python_binary = "python3"
 symbol = "󰌠 "
 
 [nodejs]
-disabled = true
-format = " via [󰎙 $version](bold green) "
+format = " via [](green)[ 󰎙 ]($style)[](green) $version"
+style = "bold bg:green fg:crust"
 
 [ruby]
 format = " via [ $version]($style) "
